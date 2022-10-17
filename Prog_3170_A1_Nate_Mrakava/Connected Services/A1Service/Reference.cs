@@ -9,7 +9,70 @@
 //------------------------------------------------------------------------------
 
 namespace Prog_3170_A1_Nate_Mrakava.A1Service {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool BoolValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StringValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool BoolValue {
+            get {
+                return this.BoolValueField;
+            }
+            set {
+                if ((this.BoolValueField.Equals(value) != true)) {
+                    this.BoolValueField = value;
+                    this.RaisePropertyChanged("BoolValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StringValue {
+            get {
+                return this.StringValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
+                    this.StringValueField = value;
+                    this.RaisePropertyChanged("StringValue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="A1Service.IService")]
@@ -20,6 +83,42 @@ namespace Prog_3170_A1_Nate_Mrakava.A1Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/PrimeNumber", ReplyAction="http://tempuri.org/IService/PrimeNumberResponse")]
+        string PrimeNumber(int value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/PrimeNumber", ReplyAction="http://tempuri.org/IService/PrimeNumberResponse")]
+        System.Threading.Tasks.Task<string> PrimeNumberAsync(int value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SumOfDigits", ReplyAction="http://tempuri.org/IService/SumOfDigitsResponse")]
+        int SumOfDigits(int value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SumOfDigits", ReplyAction="http://tempuri.org/IService/SumOfDigitsResponse")]
+        System.Threading.Tasks.Task<int> SumOfDigitsAsync(int value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReverseString", ReplyAction="http://tempuri.org/IService/ReverseStringResponse")]
+        string ReverseString(string value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReverseString", ReplyAction="http://tempuri.org/IService/ReverseStringResponse")]
+        System.Threading.Tasks.Task<string> ReverseStringAsync(string value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/PrintTags", ReplyAction="http://tempuri.org/IService/PrintTagsResponse")]
+        string PrintTags(string value, string tags);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/PrintTags", ReplyAction="http://tempuri.org/IService/PrintTagsResponse")]
+        System.Threading.Tasks.Task<string> PrintTagsAsync(string value, string tags);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SortArray", ReplyAction="http://tempuri.org/IService/SortArrayResponse")]
+        string SortArray(int[] value, bool by);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SortArray", ReplyAction="http://tempuri.org/IService/SortArrayResponse")]
+        System.Threading.Tasks.Task<string> SortArrayAsync(int[] value, bool by);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
+        Prog_3170_A1_Nate_Mrakava.A1Service.CompositeType GetDataUsingDataContract(Prog_3170_A1_Nate_Mrakava.A1Service.CompositeType composite);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
+        System.Threading.Tasks.Task<Prog_3170_A1_Nate_Mrakava.A1Service.CompositeType> GetDataUsingDataContractAsync(Prog_3170_A1_Nate_Mrakava.A1Service.CompositeType composite);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +154,54 @@ namespace Prog_3170_A1_Nate_Mrakava.A1Service {
         
         public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
             return base.Channel.GetDataAsync(value);
+        }
+        
+        public string PrimeNumber(int value) {
+            return base.Channel.PrimeNumber(value);
+        }
+        
+        public System.Threading.Tasks.Task<string> PrimeNumberAsync(int value) {
+            return base.Channel.PrimeNumberAsync(value);
+        }
+        
+        public int SumOfDigits(int value) {
+            return base.Channel.SumOfDigits(value);
+        }
+        
+        public System.Threading.Tasks.Task<int> SumOfDigitsAsync(int value) {
+            return base.Channel.SumOfDigitsAsync(value);
+        }
+        
+        public string ReverseString(string value) {
+            return base.Channel.ReverseString(value);
+        }
+        
+        public System.Threading.Tasks.Task<string> ReverseStringAsync(string value) {
+            return base.Channel.ReverseStringAsync(value);
+        }
+        
+        public string PrintTags(string value, string tags) {
+            return base.Channel.PrintTags(value, tags);
+        }
+        
+        public System.Threading.Tasks.Task<string> PrintTagsAsync(string value, string tags) {
+            return base.Channel.PrintTagsAsync(value, tags);
+        }
+        
+        public string SortArray(int[] value, bool by) {
+            return base.Channel.SortArray(value, by);
+        }
+        
+        public System.Threading.Tasks.Task<string> SortArrayAsync(int[] value, bool by) {
+            return base.Channel.SortArrayAsync(value, by);
+        }
+        
+        public Prog_3170_A1_Nate_Mrakava.A1Service.CompositeType GetDataUsingDataContract(Prog_3170_A1_Nate_Mrakava.A1Service.CompositeType composite) {
+            return base.Channel.GetDataUsingDataContract(composite);
+        }
+        
+        public System.Threading.Tasks.Task<Prog_3170_A1_Nate_Mrakava.A1Service.CompositeType> GetDataUsingDataContractAsync(Prog_3170_A1_Nate_Mrakava.A1Service.CompositeType composite) {
+            return base.Channel.GetDataUsingDataContractAsync(composite);
         }
     }
 }

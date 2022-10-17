@@ -8,9 +8,46 @@ using System.Text;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService" in both code and config file together.
 [ServiceContract]
-public interface IService {
+public interface IService
+{
+
+	[OperationContract]
+	string GetData(int value);
+	[OperationContract]
+	string PrimeNumber(int value);
+    [OperationContract]
+    int SumOfDigits(int value);
+    [OperationContract]
+    string ReverseString(string value);
+    [OperationContract]
+    string PrintTags(string value, string tags);
+    [OperationContract]
+    string SortArray(int[] value, bool by);
 
     [OperationContract]
-    string GetData(int value);
+	CompositeType GetDataUsingDataContract(CompositeType composite);
+
+	// TODO: Add your service operations here
 }
 
+// Use a data contract as illustrated in the sample below to add composite types to service operations.
+[DataContract]
+public class CompositeType
+{
+	bool boolValue = true;
+	string stringValue = "Hello ";
+
+	[DataMember]
+	public bool BoolValue
+	{
+		get { return boolValue; }
+		set { boolValue = value; }
+	}
+
+	[DataMember]
+	public string StringValue
+	{
+		get { return stringValue; }
+		set { stringValue = value; }
+	}
+}

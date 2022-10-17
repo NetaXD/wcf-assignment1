@@ -55,11 +55,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\A1Service\Prog_3170_A1_Nate_Mrakava.A1Service.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\A1Service\Service.wsdl" />
+    <None Include="Connected Services\A1Service\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\A1Service\Service1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\A1Service\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\A1Service\Service3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
